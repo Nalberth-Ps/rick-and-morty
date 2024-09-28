@@ -1,6 +1,7 @@
 .characters__list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 15.625rem);
+	justify-content: space-between;
 	gap: 1.5rem 1.875rem;
 	padding: 0;
 	list-style: none;
