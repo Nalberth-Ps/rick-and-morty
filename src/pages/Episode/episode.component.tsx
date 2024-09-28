@@ -1,5 +1,4 @@
 import { EpisodeContextProvider } from "@context/episode"
-import { FiltersContextProvider } from "@context/filters"
 import { PaginationContextProvider } from "@context/pagination"
 
 import styles from "./episode.module.css"
@@ -18,13 +17,11 @@ const Episode = () => {
 
 const EpisodeWrapper = () => {
 	return (
-		<FiltersContextProvider>
-			<PaginationContextProvider>
-				<EpisodeContextProvider>
-					<Episode />
-				</EpisodeContextProvider>
-			</PaginationContextProvider>
-		</FiltersContextProvider>
+		<PaginationContextProvider>
+			<EpisodeContextProvider>
+				<Episode />
+			</EpisodeContextProvider>
+		</PaginationContextProvider>
 	)
 }
 
