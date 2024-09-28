@@ -26,7 +26,7 @@ export const Cards = () => {
 			<ul className={styles.cardsList}>
 				{episodes.map(({ id, name, air_date, episode }) => (
 					<li key={id} className={styles.card}>
-						<Link key={id} to={`/locations/${id}`} className={styles.anchor}>
+						<Link key={id} to={`/episodes/${id}`} className={styles.anchor}>
 							<p className={styles.name}>{name}</p>
 							<p className={styles.airDate}>{air_date}</p>
 							<p className={styles.episode}>{episode}</p>

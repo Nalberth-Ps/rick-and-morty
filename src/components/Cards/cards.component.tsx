@@ -1,20 +1,19 @@
-import { useCharacters } from "@context/characters"
-import { Card } from "../Card"
 import styles from "./cards.module.css"
 import classNames from "classnames"
 import { Pagination } from "@components/Pagination"
 import type { onPageChange } from "@components/Pagination/pagination.interface"
 import { usePagination } from "@context/pagination"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
+import type { Character } from "@typings/rick-and-morty-api"
+import { Card } from "./components/Card"
 
-export const Cards = () => {
-	const { characters, loading } = useCharacters()
+type CardsProps = {
+	loading?: boolean
+	characters: Character[]
+}
 
+export const Cards: React.FC<CardsProps> = ({ characters }) => {
 	const { dispatch, currentPage, totalPages } = usePagination()
-
-	if (loading) return <div>Loading...</div>
-
-	if (!characters?.length) return <div>No characters found</div>
 
 	function handlePageChange(pages: onPageChange) {
 		if (pages.nextSelectedPage === undefined) return

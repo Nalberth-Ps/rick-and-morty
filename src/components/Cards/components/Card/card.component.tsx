@@ -7,7 +7,7 @@ import classNames from "classnames"
 export const Card: React.FC<CardProps> = ({ id, image, name, species }) => {
 	return (
 		<li className={classNames(styles.characters__item)}>
-			<Link to={`${id}`}>
+			<Link to={`/characters/${id}`}>
 				<article className={styles.article}>
 					<div className={styles.imageContainer}>
 						<img

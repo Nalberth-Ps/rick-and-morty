@@ -1,0 +1,42 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.title {
+	color: #191919;
+	font-size: 2rem;
+	line-height: 1.5rem;
+	font-weight: 600;
+}
+
+.informationRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 400px;
+}
+
+.information {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.informationTitle {
+	color: #191919;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	font-weight: 600;
+}
+
+.informationText {
+	color: #191919;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+}

@@ -4,7 +4,7 @@ import { Banner } from "./components/Banner"
 import { Filters } from "./components/Filters"
 import styles from "./characters.module.css"
 import { CharactersContextProvider } from "@context/characters"
-import { Cards } from "./components/Cards"
+import { CharactersCards } from "./components/CharactersCards"
 import { PaginationContextProvider } from "@context/pagination"
 
 const Characters = () => {
@@ -17,7 +17,7 @@ const Characters = () => {
 
 						<Filters />
 
-						<Cards />
+						<CharactersCards />
 					</div>
 				</CharactersContextProvider>
 			</PaginationContextProvider>
