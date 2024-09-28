@@ -20,12 +20,11 @@ import type {
 	Character,
 	CharacterFilter,
 } from "@typings/rick-and-morty-api"
-import { useSearchParams } from "react-router-dom"
+import { usePagination } from "@context/pagination"
+import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 
 const initialState: CharactersState = {
 	characters: null,
-	totalPages: 0,
-	currentPage: 1,
 	loading: false,
 	error: null,
 }
@@ -40,15 +39,14 @@ export const CharactersContextProvider: React.FC<PropsWithChildren> = ({
 }) => {
 	const [state, dispatch] = useReducer(reducer, initialState)
 	const { filters } = useFilters()
-
-	const [searchParams] = useSearchParams()
+	const { currentPage, dispatch: paginationDispatch } = usePagination()
 
 	const { data, error, loading } = useQuery<
 		{ characters: Info<Character[]> },
 		{ page: number; filter: CharacterFilter }
 	>(GET_CHARACTERS, {
 		variables: {
-			page: state.currentPage,
+			page: currentPage,
 			filter: filters ?? {},
 		},
 		fetchPolicy: "cache-first",
@@ -66,22 +64,12 @@ export const CharactersContextProvider: React.FC<PropsWithChildren> = ({
 				type: CHARACTERS_ACTION_TYPE.SET_CHARACTERS,
 				payload: data.characters.results,
 			})
-			dispatch({
-				type: CHARACTERS_ACTION_TYPE.SET_TOTAL_PAGES,
+			paginationDispatch?.({
+				type: PAGINATION_ACTION_TYPE.SET_TOTAL_PAGES,
 				payload: data.characters.info?.pages || 0,
 			})
 		}
-	}, [data, error, loading])
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: This effect is used to set the current page from the URL query params when the component mounts.
-	useEffect(() => {
-		const page = Number(searchParams.get("page")) || 1
-
-		dispatch({
-			type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE,
-			payload: page,
-		})
-	}, [])
+	}, [data, error, loading, paginationDispatch])
 
 	return (
 		<CharactersStateContext.Provider value={state}>

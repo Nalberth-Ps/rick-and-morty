@@ -5,19 +5,22 @@ import { Filters } from "./components/Filters"
 import styles from "./characters.module.css"
 import { CharactersContextProvider } from "@context/characters"
 import { Cards } from "./components/Cards"
+import { PaginationContextProvider } from "@context/pagination"
 
 const Characters = () => {
 	return (
 		<FiltersContextProvider>
-			<CharactersContextProvider>
-				<div className={classNames(styles.main, "container")}>
-					<Banner />
+			<PaginationContextProvider>
+				<CharactersContextProvider>
+					<div className={classNames(styles.main, "container")}>
+						<Banner />
 
-					<Filters />
+						<Filters />
 
-					<Cards />
-				</div>
-			</CharactersContextProvider>
+						<Cards />
+					</div>
+				</CharactersContextProvider>
+			</PaginationContextProvider>
 		</FiltersContextProvider>
 	)
 }
