@@ -41,7 +41,7 @@ export const CharactersContextProvider: React.FC<PropsWithChildren> = ({
 	const [state, dispatch] = useReducer(reducer, initialState)
 	const { filters } = useFilters()
 
-	const [searchParams, setSearchParams] = useSearchParams()
+	const [searchParams] = useSearchParams()
 
 	const { data, error, loading } = useQuery<
 		{ characters: Info<Character[]> },
@@ -77,7 +77,10 @@ export const CharactersContextProvider: React.FC<PropsWithChildren> = ({
 	useEffect(() => {
 		const page = Number(searchParams.get("page")) || 1
 
-		dispatch({ type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE, payload: page })
+		dispatch({
+			type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE,
+			payload: page,
+		})
 	}, [])
 
 	return (

@@ -1,35 +1,34 @@
-import ReactPaginate, { type ReactPaginateProps } from "react-paginate"
+import ReactPaginate from "react-paginate"
 
 import styles from "./pagination.module.css"
 import { useSearchParams } from "react-router-dom"
-
-type PaginationProps = Pick<
-	ReactPaginateProps,
-	"pageCount" | "onPageChange" | "initialPage"
->
+import type { onPageChange, PaginationProps } from "./pagination.interface"
 
 export const Pagination: React.FC<PaginationProps> = ({
 	pageCount,
-	onPageChange,
+	onClick,
 	initialPage = 0,
 }) => {
 	const [_, setSearchParams] = useSearchParams()
 
-	function handlePageChange(pages: { selected: number }) {
-		setSearchParams({ page: String(pages.selected + 1) })
-		onPageChange?.(pages)
+	function handlePageChange(pages: onPageChange) {
+		if (pages.nextSelectedPage === undefined) return
+
+		setSearchParams({ page: String(pages.nextSelectedPage + 1) })
+
+		onClick?.(pages)
 	}
 
 	return (
 		<div className={styles.paginationWrapper}>
 			<ReactPaginate
+				onClick={handlePageChange}
 				initialPage={initialPage}
 				className={styles.pagination}
 				activeClassName={styles.selectedPage}
 				disabledClassName={styles.disabled}
 				breakLabel="..."
 				nextLabel=">"
-				onPageChange={handlePageChange}
 				pageRangeDisplayed={5}
 				pageCount={pageCount}
 				previousLabel="<"

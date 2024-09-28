@@ -4,6 +4,7 @@ import styles from "./cards.module.css"
 import classNames from "classnames"
 import { Pagination } from "@components/Pagination"
 import { CHARACTERS_ACTION_TYPE } from "@context/characters/characters.interface"
+import type { onPageChange } from "@components/Pagination/pagination.interface"
 
 export const Cards = () => {
 	const { characters, loading, currentPage, totalPages, dispatch } =
@@ -13,10 +14,12 @@ export const Cards = () => {
 
 	if (!characters?.length) return <div>No characters found</div>
 
-	function handlePageChange(pages: { selected: number }) {
+	function handlePageChange(pages: onPageChange) {
+		if (pages.nextSelectedPage === undefined) return
+
 		dispatch?.({
 			type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE,
-			payload: pages.selected,
+			payload: pages.nextSelectedPage + 1,
 		})
 	}
 
@@ -29,9 +32,9 @@ export const Cards = () => {
 			</ul>
 
 			<Pagination
-				initialPage={currentPage}
+				initialPage={currentPage - 1}
 				pageCount={totalPages}
-				onPageChange={handlePageChange}
+				onClick={handlePageChange}
 			/>
 		</section>
 	)
