@@ -1,29 +1,40 @@
 // Dependencies
 import type React from "react"
+import { useSearchParams } from "react-router-dom"
 import * as Select from "@radix-ui/react-select"
 import { CheckIcon } from "@radix-ui/react-icons"
 
 // Hooks
 import { useFilters } from "@context/filters"
+import { useCharacters } from "@context/characters"
 
 // Assets
 import ArrowDown from "@assets/icons/arrow-down.svg"
 
 // Typings
 import type { FilterProps } from "@context/filters/filters.interface"
+import { CHARACTERS_ACTION_TYPE } from "@context/characters/characters.interface"
 
 // Styles
 import "./filter.modules.css"
 
 export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
 	const { updateFilters } = useFilters()
+	const { dispatch } = useCharacters() ?? {}
+	const [_, setSearchParams] = useSearchParams()
+
+	function resetPagination() {
+		dispatch?.({ type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE, payload: 1 })
+		setSearchParams({ page: "1" })
+	}
 
 	return (
 		<div className="filterWrapper">
 			<Select.Root
-				onValueChange={(selectedFilter) =>
+				onValueChange={(selectedFilter) => {
 					updateFilters(selectedFilter, filterType)
-				}
+					resetPagination()
+				}}
 			>
 				<Select.Trigger className="select-trigger" aria-label={filterType}>
 					<Select.Value placeholder={filterType} />
