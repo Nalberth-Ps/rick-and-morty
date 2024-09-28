@@ -8,6 +8,7 @@ const Locations = React.lazy(() => import("@pages/Locations"))
 const Location = React.lazy(() => import("@pages/Location"))
 const Episodes = React.lazy(() => import("@pages/Episodes"))
 const Episode = React.lazy(() => import("@pages/Episode"))
+const NotFound = React.lazy(() => import("@pages/NotFound"))
 
 export const router = createBrowserRouter([
 	{
@@ -17,27 +18,28 @@ export const router = createBrowserRouter([
 			{ index: true, element: <Characters /> },
 			{
 				path: "characters",
-				element: <Characters />,
-			},
-			{
-				path: "characters/:id",
-				element: <Character />,
+				children: [
+					{ index: true, element: <Characters /> },
+					{ path: ":id", element: <Character /> },
+				],
 			},
 			{
 				path: "locations",
-				element: <Locations />,
-			},
-			{
-				path: "locations/:id",
-				element: <Location />,
+				children: [
+					{ index: true, element: <Locations /> },
+					{ path: ":id", element: <Location /> },
+				],
 			},
 			{
 				path: "episodes",
-				element: <Episodes />,
+				children: [
+					{ index: true, element: <Episodes /> },
+					{ path: ":id", element: <Episode /> },
+				],
 			},
 			{
-				path: "episodes/:id",
-				element: <Episode />,
+				path: "*",
+				element: <NotFound />,
 			},
 		],
 	},

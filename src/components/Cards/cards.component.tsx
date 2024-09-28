@@ -6,14 +6,19 @@ import { usePagination } from "@context/pagination"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 import type { Character } from "@typings/rick-and-morty-api"
 import { Card } from "./components/Card"
+import { Skeleton } from "./components/Skeleton"
+import { NotFound } from "./components/NotFound"
 
 type CardsProps = {
 	loading?: boolean
-	characters: Character[]
+	characters: Character[] | undefined
 }
 
-export const Cards: React.FC<CardsProps> = ({ characters }) => {
+export const Cards: React.FC<CardsProps> = ({ characters, loading }) => {
 	const { dispatch, currentPage, totalPages } = usePagination()
+
+	if (loading) return <Skeleton />
+	if (!characters || characters.length === 0) return <NotFound />
 
 	function handlePageChange(pages: onPageChange) {
 		if (pages.nextSelectedPage === undefined) return
@@ -22,6 +27,8 @@ export const Cards: React.FC<CardsProps> = ({ characters }) => {
 			type: PAGINATION_ACTION_TYPE.SET_CURRENT_PAGE,
 			payload: pages.nextSelectedPage + 1,
 		})
+
+		window.scrollTo({ top: 0, behavior: "smooth" })
 	}
 
 	return (

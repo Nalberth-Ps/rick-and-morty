@@ -25,7 +25,7 @@ import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface
 
 const initialState: CharactersState = {
 	characters: null,
-	loading: false,
+	loading: true,
 	error: null,
 }
 

@@ -6,25 +6,25 @@ import { CheckIcon } from "@radix-ui/react-icons"
 
 // Hooks
 import { useFilters } from "@context/filters"
-import { useCharacters } from "@context/characters"
 
 // Assets
 import ArrowDown from "@assets/icons/arrow-down.svg"
 
 // Typings
 import type { FilterProps } from "@context/filters/filters.interface"
-import { CHARACTERS_ACTION_TYPE } from "@context/characters/characters.interface"
 
 // Styles
 import "./filter.modules.css"
+import { usePagination } from "@context/pagination"
+import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 
 export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
 	const { updateFilters } = useFilters()
-	const { dispatch } = useCharacters() ?? {}
+	const { dispatch } = usePagination() ?? {}
 	const [_, setSearchParams] = useSearchParams()
 
 	function resetPagination() {
-		dispatch?.({ type: CHARACTERS_ACTION_TYPE.SET_CURRENT_PAGE, payload: 1 })
+		dispatch?.({ type: PAGINATION_ACTION_TYPE.SET_CURRENT_PAGE, payload: 1 })
 		setSearchParams({ page: "1" })
 	}
 
@@ -62,6 +62,13 @@ export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
 										</Select.ItemIndicator>
 									</Select.Item>
 								))}
+
+								<Select.Item key="all" value="*" className="select-item">
+									<Select.ItemText>All</Select.ItemText>
+									<Select.ItemIndicator className="select-item-indicator">
+										<CheckIcon />
+									</Select.ItemIndicator>
+								</Select.Item>
 							</Select.Group>
 						</Select.Viewport>
 

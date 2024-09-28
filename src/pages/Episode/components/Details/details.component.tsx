@@ -1,24 +1,32 @@
 import { useEpisode } from "@context/episode"
 
 import styles from "./details.module.css"
+import { GoBackButton } from "@components/GoBackButton"
+import { Skeleton } from "@mui/material"
 
 export const Details = () => {
 	const { episode } = useEpisode()
-	if (!episode) return null
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>{episode.name}</h1>
+			<GoBackButton />
+			<h1 className={styles.title}>
+				{episode ? episode.name : <Skeleton width={200} height={48} />}
+			</h1>
 
 			<div className={styles.informationRow}>
 				<div className={styles.information}>
 					<p className={styles.informationTitle}>Episode</p>
-					<p className={styles.informationText}>{episode.episode}</p>
+					<p className={styles.informationText}>
+						{episode ? episode.episode : <Skeleton width={100} height={24} />}
+					</p>
 				</div>
 
 				<div className={styles.information}>
 					<p className={styles.informationTitle}>Date</p>
-					<p className={styles.informationText}>{episode.air_date}</p>
+					<p className={styles.informationText}>
+						{episode ? episode.air_date : <Skeleton width={100} height={24} />}
+					</p>
 				</div>
 			</div>
 		</div>

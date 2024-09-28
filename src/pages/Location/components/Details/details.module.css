@@ -4,12 +4,13 @@
 	align-items: center;
 	justify-content: center;
 	gap: 1.5rem;
+	position: relative;
 }
 
 .title {
 	color: #191919;
 	font-size: 2rem;
-	line-height: 1.5rem;
+	line-height: 3rem;
 	font-weight: 600;
 }
 

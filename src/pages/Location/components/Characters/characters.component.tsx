@@ -4,14 +4,13 @@ import styles from "./characters.module.css"
 import { useLocation } from "@context/location"
 
 export const Characters = () => {
-	const { location } = useLocation()
-	if (!location) return null
+	const { location, loading } = useLocation()
 
 	return (
 		<>
 			<h2 className={styles.title}>Residents</h2>
 
-			<Cards characters={location.residents} />
+			<Cards characters={location?.residents} loading={loading} />
 		</>
 	)
 }
