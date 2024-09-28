@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client"
 
 export const GET_LOCATIONS = gql`
   query GetLocations($page: Int, $filter: FilterLocation) {
@@ -9,6 +9,8 @@ export const GET_LOCATIONS = gql`
         type
       }
       info {
+        pages
+        prev
         next
       }
     }
