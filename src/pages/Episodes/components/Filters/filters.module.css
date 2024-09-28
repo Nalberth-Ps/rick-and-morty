@@ -1,0 +1,15 @@
+.container {
+	margin: 1rem auto 4rem;
+	width: 500px;
+	max-width: 31.25rem;
+}
+
+.byName {
+	width: 500px;
+	max-width: 31.25rem;
+}
+
+.container input,
+.byName input {
+	width: 100%;
+}
