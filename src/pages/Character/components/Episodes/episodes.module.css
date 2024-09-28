@@ -1,0 +1,18 @@
+.title {
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 32px;
+	color: #191919;
+}
+
+.episodesList {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0 0 0 1rem;
+}
+
+.episodesItem {
+	padding: 9px 0 12px;
+	border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+}

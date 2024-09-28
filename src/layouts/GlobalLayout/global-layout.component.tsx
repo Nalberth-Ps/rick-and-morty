@@ -11,7 +11,9 @@ export const GlobalLayout = () => {
 			<Header />
 
 			<Suspense fallback={<ProgressBar />}>
-				<Outlet />
+				<div className="container">
+					<Outlet />
+				</div>
 			</Suspense>
 
 			<Footer />
