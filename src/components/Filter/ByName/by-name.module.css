@@ -1,0 +1,22 @@
+.filterByName {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.5rem;
+
+	padding: 1rem;
+	border-radius: 0.5rem;
+	border: 0.0625rem solid rgba(0, 0, 0, 0.5);
+}
+
+.filterByName button {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+}
+
+.filterByName input {
+	height: 100%;
+	border: 0;
+}
