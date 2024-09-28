@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom"
 const Characters = React.lazy(() => import("@pages/Characters"))
 const Character = React.lazy(() => import("@pages/Character"))
 const Locations = React.lazy(() => import("@pages/Locations"))
+const Location = React.lazy(() => import("@pages/Location"))
 const Episodes = React.lazy(() => import("@pages/Episodes"))
 const Episode = React.lazy(() => import("@pages/Episode"))
 
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
 			{
 				path: "locations",
 				element: <Locations />,
+			},
+			{
+				path: "locations/:id",
+				element: <Location />,
 			},
 			{
 				path: "episodes",
