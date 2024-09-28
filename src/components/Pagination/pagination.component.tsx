@@ -23,6 +23,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		<div className={styles.paginationWrapper}>
 			<ReactPaginate
 				onClick={handlePageChange}
+				forcePage={initialPage}
 				initialPage={initialPage}
 				className={styles.pagination}
 				activeClassName={styles.selectedPage}
