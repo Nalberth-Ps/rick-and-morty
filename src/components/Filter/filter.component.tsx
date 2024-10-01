@@ -6,17 +6,17 @@ import { CheckIcon } from "@radix-ui/react-icons"
 
 // Hooks
 import { useFilters } from "@context/filters"
+import { usePagination } from "@context/pagination"
 
 // Assets
 import ArrowDown from "@assets/icons/arrow-down.svg"
 
 // Typings
 import type { FilterProps } from "@context/filters/filters.interface"
+import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 
 // Styles
 import "./filter.modules.css"
-import { usePagination } from "@context/pagination"
-import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 
 export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
 	const { updateFilters } = useFilters()

@@ -23,7 +23,6 @@ export const PaginationContextProvider: React.FC<React.PropsWithChildren> = ({
 	const [state, dispatch] = useReducer(paginationReducer, initialState)
 	const [searchParams] = useSearchParams()
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: This effect is used to set the current page from the URL query params when the component mounts.
 	useEffect(() => {
 		const page = Number(searchParams.get("page")) || 1
 
@@ -31,7 +30,7 @@ export const PaginationContextProvider: React.FC<React.PropsWithChildren> = ({
 			type: PAGINATION_ACTION_TYPE.SET_CURRENT_PAGE,
 			payload: page,
 		})
-	}, [])
+	}, [searchParams])
 
 	return (
 		<PaginationStateContext.Provider value={state}>

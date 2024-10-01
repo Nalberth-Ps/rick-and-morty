@@ -5,12 +5,13 @@ import { Pagination } from "@components/Pagination"
 import { usePagination } from "@context/pagination"
 import type { onPageChange } from "@components/Pagination/pagination.interface"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
+import { Skeleton } from "./cards.skeleton"
 
 export const Cards = () => {
-	const { locations } = useLocations()
+	const { locations, loading } = useLocations()
 	const { currentPage, dispatch, totalPages } = usePagination()
 
-	if (!locations) return null
+	if (!locations || loading) return <Skeleton />
 
 	function goToSelectedPage(pages: onPageChange) {
 		if (pages.nextSelectedPage === undefined) return

@@ -40,3 +40,10 @@ a {
 	margin: 0 auto;
 	padding: 0 2rem;
 }
+
+@media (max-width: 48rem) {
+	.container {
+		padding: 0 1rem;
+		max-width: 100%;
+	}
+}

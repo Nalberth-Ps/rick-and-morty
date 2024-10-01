@@ -12,7 +12,7 @@ const Characters = () => {
 		<FiltersContextProvider>
 			<PaginationContextProvider>
 				<CharactersContextProvider>
-					<div className={classNames(styles.main, "container")}>
+					<div className={classNames(styles.main)}>
 						<Banner />
 
 						<Filters />

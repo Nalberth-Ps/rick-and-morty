@@ -14,6 +14,14 @@ export const filtersReducer = (
 			const { selectedFilter, filterTypeName } = action.payload
 			const filterKey = FilterType[filterTypeName]
 
+			// @ts-ignore
+			if (state && state[filterKey] === selectedFilter) {
+				// @ts-ignore
+				const { [filterKey]: _, ...remainingFilters } = state
+				return Object.keys(remainingFilters).length ? remainingFilters : null
+			}
+
+			// Atualiza o filtro com o novo valor selecionado
 			return {
 				...state,
 				[filterKey]: selectedFilter,

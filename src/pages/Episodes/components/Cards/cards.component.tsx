@@ -5,12 +5,11 @@ import type { onPageChange } from "@components/Pagination/pagination.interface"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 import { useEpisodes } from "@context/episodes/episodes.context"
 import styles from "./cards.module.css"
+import { Skeleton } from "./cards.skeleton"
 
 export const Cards = () => {
-	const { episodes } = useEpisodes()
+	const { episodes, loading } = useEpisodes()
 	const { currentPage, dispatch, totalPages } = usePagination()
-
-	if (!episodes) return null
 
 	function goToSelectedPage(pages: onPageChange) {
 		if (pages.nextSelectedPage === undefined) return
@@ -19,7 +18,13 @@ export const Cards = () => {
 			type: PAGINATION_ACTION_TYPE.SET_CURRENT_PAGE,
 			payload: pages.nextSelectedPage + 1,
 		})
+
+		window.scrollTo({ top: 0, behavior: "smooth" })
 	}
+
+	if (loading) return <Skeleton />
+	if (!episodes || episodes.length === 0)
+		return <p>Nenhum episódio encontrado</p>
 
 	return (
 		<section className={styles.cards}>

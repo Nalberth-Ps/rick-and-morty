@@ -1,11 +1,11 @@
 import MuiSkeleton from "@mui/material/Skeleton"
-import styles from "./skeleton.module.css"
+import styles from "../../cards.module.css"
 
 export const Skeleton = () => {
 	const items = Array.from({ length: 20 }, (_, index) => index)
 
 	return (
-		<div className={styles.cards}>
+		<div className={styles.characters__list}>
 			{items.map((item) => (
 				<MuiSkeleton
 					key={item}

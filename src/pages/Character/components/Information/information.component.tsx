@@ -28,7 +28,7 @@ export const Information: React.FC = () => {
 					<Item
 						title="Localização"
 						value={character.location.name}
-						path={character.location.id}
+						path={`/locations/${character.location.id}`}
 					/>
 				</li>
 			</ul>

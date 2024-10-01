@@ -12,8 +12,10 @@ const ITEMS_PER_PAGE = 5
 export const Episodes = () => {
 	const { character } = useCharacter() ?? {}
 	const [searchParams] = useSearchParams()
-	const initialPage = Number(searchParams.get("page"))
-	const [itemOffset, setItemOffset] = useState(initialPage * ITEMS_PER_PAGE)
+	const initialPage = Number(searchParams.get("page") ?? 1)
+	const [itemOffset, setItemOffset] = useState(
+		(initialPage - 1) * ITEMS_PER_PAGE,
+	)
 
 	if (!character?.episode) return null
 
