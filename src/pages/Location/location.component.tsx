@@ -6,11 +6,11 @@ import { Characters } from "./components/Characters"
 
 const Location = () => {
 	return (
-		<main className={styles.main}>
+		<div className={styles.main}>
 			<Details />
 
 			<Characters />
-		</main>
+		</div>
 	)
 }
 

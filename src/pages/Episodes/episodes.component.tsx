@@ -9,13 +9,13 @@ import { Cards } from "./components/Cards"
 
 const Episodes = () => {
 	return (
-		<main className={styles.main}>
+		<div className={styles.main}>
 			<Banner />
 
 			<Filters />
 
 			<Cards />
-		</main>
+		</div>
 	)
 }
 

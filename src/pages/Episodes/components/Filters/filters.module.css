@@ -1,15 +1,21 @@
 .container {
 	margin: 1rem auto 4rem;
 	width: 500px;
-	max-width: 31.25rem;
+	max-width: 100%;
 }
 
 .byName {
-	width: 500px;
 	max-width: 31.25rem;
 }
 
 .container input,
 .byName input {
 	width: 100%;
+}
+
+@media (max-width: 48rem) {
+	.container {
+		width: 25rem;
+		max-width: 100%;
+	}
 }

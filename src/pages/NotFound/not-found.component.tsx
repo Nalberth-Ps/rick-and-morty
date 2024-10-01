@@ -5,7 +5,7 @@ import styles from "./not-found.module.css"
 
 const NotFound = () => {
 	return (
-		<main className={styles.main}>
+		<div className={styles.main}>
 			<img src={NOT_FOUND_IMAGE} alt="Not found" />
 
 			<h1 className={styles.title}>Página não encontrada</h1>
@@ -18,7 +18,7 @@ const NotFound = () => {
 			<Link className={styles.anchor} to="/">
 				Voltar para a página inicial
 			</Link>
-		</main>
+		</div>
 	)
 }
 

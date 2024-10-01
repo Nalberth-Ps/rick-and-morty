@@ -13,7 +13,7 @@ const Character = () => {
 	if (loading) return <Skeleton />
 
 	return (
-		<main className={classNames(styles.main)}>
+		<div className={classNames(styles.main)}>
 			<Avatar />
 
 			<section className={styles.details}>
@@ -21,7 +21,7 @@ const Character = () => {
 
 				<Episodes />
 			</section>
-		</main>
+		</div>
 	)
 }
 

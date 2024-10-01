@@ -7,11 +7,11 @@ import { Characters } from "./components/Characters"
 
 const Episode = () => {
 	return (
-		<main className={styles.main}>
+		<div className={styles.main}>
 			<Details />
 
 			<Characters />
-		</main>
+		</div>
 	)
 }
 

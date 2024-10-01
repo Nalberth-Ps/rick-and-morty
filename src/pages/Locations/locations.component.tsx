@@ -9,13 +9,13 @@ import styles from "./locations.module.css"
 
 const Locations = () => {
 	return (
-		<main className={styles.main}>
+		<div className={styles.main}>
 			<Banner />
 
 			<Filters />
 
 			<Cards />
-		</main>
+		</div>
 	)
 }
 
