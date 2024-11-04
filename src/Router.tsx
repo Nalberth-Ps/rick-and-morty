@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
-		errorElement: <NotFound />,
+		// errorElement: <NotFound />,
 		children: [
 			{ index: true, element: <Characters /> },
 			{
@@ -37,6 +37,10 @@ export const router = createBrowserRouter([
 					{ index: true, element: <Episodes /> },
 					{ path: ":id", element: <Episode /> },
 				],
+			},
+			{
+				path: "404",
+				element: <NotFound />,
 			},
 			{
 				path: "*",

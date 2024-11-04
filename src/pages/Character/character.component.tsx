@@ -6,11 +6,14 @@ import classNames from "classnames"
 import { Information } from "./components/Information"
 import { Episodes } from "./components/Episodes"
 import { Skeleton } from "./components/Skeleton"
+import NotFound from "@pages/NotFound"
 
 const Character = () => {
-	const { loading } = useCharacter()
+	const { character, error, loading } = useCharacter()
 
 	if (loading) return <Skeleton />
+
+	if (!character || error) return <NotFound />
 
 	return (
 		<div className={classNames(styles.main)}>

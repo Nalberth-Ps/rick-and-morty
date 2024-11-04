@@ -1,0 +1,66 @@
+.filterWrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
+}
+
+.selectLabel {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	font-size: 14px;
+	line-height: 19px;
+	color: rgba(0, 0, 0, 0.9);
+	text-transform: capitalize;
+}
+
+.selectTrigger {
+	height: 100%;
+	width: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px;
+	gap: 5px;
+	background-color: white;
+	color: rgba(0, 0, 0, 0.6);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	text-transform: capitalize;
+	border: 0.0625rem solid rgba(0, 0, 0, 0.5);
+	border-radius: 0.5rem;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("@assets/icons/arrow-down.svg");
+	background-repeat: no-repeat;
+	background-position: right 24px center;
+	background-size: 24px;
+	cursor: pointer;
+}
+
+.selectTrigger:invalid {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.selectTrigger::-ms-expand {
+	display: none;
+}
+
+.selectTrigger:focus {
+	outline: none;
+	border-color: rgba(0, 0, 0, 0.9);
+}
+
+.selectItem {
+	font-size: 13px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.selectItem:hover,
+.selectItem:focus {
+	background-color: rgba(0, 0, 0, 0.1);
+}

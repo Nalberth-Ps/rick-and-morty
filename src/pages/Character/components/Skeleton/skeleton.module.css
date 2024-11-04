@@ -21,3 +21,13 @@
 	gap: 2rem;
 	margin-top: 2.625rem;
 }
+
+@media (max-width: 768px) {
+	.skeletonInformation {
+		width: 100%;
+	}
+
+	.skeletonInformationRow {
+		width: 100%;
+	}
+}

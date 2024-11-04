@@ -39,7 +39,6 @@ export const EpisodesContextProvider: React.FC<React.PropsWithChildren> = ({
 			filter: filters ?? {},
 		},
 		fetchPolicy: "cache-first",
-		errorPolicy: "ignore",
 	})
 
 	useEffect(() => {

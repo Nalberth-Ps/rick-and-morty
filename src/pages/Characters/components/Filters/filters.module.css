@@ -4,3 +4,10 @@
 	gap: 1.25rem;
 	margin: 1rem 0 3.75rem;
 }
+
+@media (max-width: 48rem) {
+	.filtersContainer {
+		grid-template-columns: 1fr;
+		margin: 1rem 0;
+	}
+}

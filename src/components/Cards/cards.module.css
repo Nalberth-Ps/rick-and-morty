@@ -6,3 +6,9 @@
 	padding: 0;
 	list-style: none;
 }
+
+@media (max-width: 48rem) {
+	.characters__list {
+		justify-content: center;
+	}
+}
