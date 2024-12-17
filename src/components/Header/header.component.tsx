@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { AiOutlineMenu } from "react-icons/ai"
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai"
 import { Logo } from "./components/Logo"
 import { Navbar } from "./components/Navbar"
 import styles from "./header.module.css"
-import { Drawer } from "@components/Drawer"
+import classNames from "classnames"
 
 export const Header: React.FC = () => {
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -33,9 +33,34 @@ export const Header: React.FC = () => {
 					<AiOutlineMenu size={24} />
 				</button>
 
-				<Drawer isOpen={isDrawerOpen} onClose={closeDrawer}>
-					<Navbar />
-				</Drawer>
+				<aside
+					className={classNames(styles.drawer, {
+						[styles.drawerOpen]: isDrawerOpen,
+					})}
+				>
+					<button
+						className={styles.closeButton}
+						onClick={closeDrawer}
+						type="button"
+					>
+						<AiOutlineClose size={24} />
+					</button>
+
+					<div className={styles.drawerContent}>
+						<Navbar />
+					</div>
+				</aside>
+				<div
+					className={classNames(styles.overlay, {
+						[styles.overlayOpen]: isDrawerOpen,
+					})}
+					onClick={closeDrawer}
+					onKeyUp={(e) => {
+						if (e.key === "Enter" || e.key === " ") {
+							closeDrawer()
+						}
+					}}
+				/>
 			</div>
 		</header>
 	)
