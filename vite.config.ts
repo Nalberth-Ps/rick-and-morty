@@ -30,7 +30,13 @@ export default defineConfig({
 				entryFileNames: "assets/[name].js",
 				chunkFileNames: "assets/[name].js",
 				manualChunks(id) {
-					if (id.includes("/node_modules/")) return "dependencies"
+					if (id.includes("/node_modules/")) {
+						if (id.includes("react") || id.includes("react-dom")) return "react"
+						if (id.includes("lodash")) return "lodash"
+						if (id.includes("graphql")) return "graphql"
+
+						return "vendor"
+					}
 
 					if (id.includes("/src/context/")) {
 						const name = id
