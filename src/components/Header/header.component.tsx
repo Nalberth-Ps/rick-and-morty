@@ -42,6 +42,7 @@ export const Header: React.FC = () => {
 						className={styles.closeButton}
 						onClick={closeDrawer}
 						type="button"
+						aria-label="Close menu"
 					>
 						<AiOutlineClose size={24} />
 					</button>
