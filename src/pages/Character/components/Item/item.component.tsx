@@ -1,6 +1,7 @@
-import type React from "react"
-import { NavigateWrapper } from "@components/NavigateWrapper"
+import React from "react"
 import styles from "./item.module.css"
+
+const NavigateWrapper = React.lazy(() => import("@components/NavigateWrapper"))
 
 interface ItemProps {
 	title: string

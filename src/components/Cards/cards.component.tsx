@@ -1,13 +1,15 @@
+import React from "react"
 import styles from "./cards.module.css"
 import classNames from "classnames"
-import { Pagination } from "@components/Pagination"
+const Pagination = React.lazy(() => import("@components/Pagination"))
+
 import type { onPageChange } from "@components/Pagination/pagination.interface"
 import { usePagination } from "@context/pagination"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"
 import type { Character } from "@typings/rick-and-morty-api"
 import { Card } from "./components/Card"
 import { Skeleton } from "./components/Skeleton"
-import { NotFound } from "./components/NotFound"
+import { useNavigate } from "react-router-dom"
 
 type CardsProps = {
 	loading?: boolean
@@ -15,10 +17,15 @@ type CardsProps = {
 }
 
 export const Cards: React.FC<CardsProps> = ({ characters, loading }) => {
+	const navigate = useNavigate()
 	const { dispatch, currentPage, totalPages } = usePagination()
 
 	if (loading) return <Skeleton />
-	if (!characters || characters.length === 0) return <NotFound />
+
+	if (!characters || characters.length === 0) {
+		navigate("/404")
+		return null
+	}
 
 	function handlePageChange(pages: onPageChange) {
 		if (pages.nextSelectedPage === undefined) return

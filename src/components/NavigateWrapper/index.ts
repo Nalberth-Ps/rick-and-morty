@@ -1,1 +1,3 @@
-export { NavigateWrapper } from "./navigate-wrapper.component"
+import { NavigateWrapper } from "./navigate-wrapper.component"
+
+export default NavigateWrapper

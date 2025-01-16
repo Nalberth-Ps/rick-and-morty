@@ -1,1 +1,3 @@
-export { GoBackButton } from "./go-back-button.component"
+import { GoBackButton } from "./go-back-button.component"
+
+export default GoBackButton

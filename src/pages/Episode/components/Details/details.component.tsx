@@ -1,7 +1,8 @@
 import { useEpisode } from "@context/episode"
 
+import React from "react"
 import styles from "./details.module.css"
-import { GoBackButton } from "@components/GoBackButton"
+const GoBackButton = React.lazy(() => import("@components/GoBackButton"))
 import { Skeleton } from "@mui/material"
 
 export const Details = () => {

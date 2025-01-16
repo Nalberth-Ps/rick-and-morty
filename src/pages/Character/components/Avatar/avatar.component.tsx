@@ -1,6 +1,6 @@
-import type React from "react"
+import React from "react"
 import { useCharacter } from "@context/character"
-import { GoBackButton } from "@components/GoBackButton"
+const GoBackButton = React.lazy(() => import("@components/GoBackButton"))
 
 import styles from "./avatar.module.css"
 

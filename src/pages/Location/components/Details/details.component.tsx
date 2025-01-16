@@ -2,7 +2,8 @@ import { useLocation } from "@context/location"
 
 import styles from "./details.module.css"
 import { Skeleton } from "@mui/material"
-import { GoBackButton } from "@components/GoBackButton"
+import React from "react"
+const GoBackButton = React.lazy(() => import("@components/GoBackButton"))
 
 export const Details = () => {
 	const { location } = useLocation()

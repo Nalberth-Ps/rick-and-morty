@@ -1,5 +1,6 @@
+import React from "react"
 import { Link } from "react-router-dom"
-import { Pagination } from "@components/Pagination"
+const Pagination = React.lazy(() => import("@components/Pagination"))
 import { usePagination } from "@context/pagination"
 import type { onPageChange } from "@components/Pagination/pagination.interface"
 import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface"

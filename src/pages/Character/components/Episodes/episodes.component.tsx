@@ -1,9 +1,11 @@
+import React from "react"
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { useCharacter } from "@context/character"
 import { Item } from "../Item"
-import { Pagination } from "@components/Pagination"
 import type { onPageChange } from "@components/Pagination/pagination.interface"
+
+const Pagination = React.lazy(() => import("@components/Pagination"))
 
 import styles from "./episodes.module.css"
 
