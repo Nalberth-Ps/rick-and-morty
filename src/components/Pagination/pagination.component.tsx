@@ -20,6 +20,8 @@ export const Pagination: React.FC<PaginationProps> = ({
 		onClick?.(pages)
 	}
 
+	if (pageCount === 1) return null
+
 	return (
 		<div className={styles.paginationWrapper}>
 			<ReactPaginate
