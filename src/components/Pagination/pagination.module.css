@@ -12,9 +12,6 @@
 	margin: 1rem 0;
 }
 
-.pagination li {
-}
-
 .pagination a {
 	display: flex;
 	justify-content: center;
