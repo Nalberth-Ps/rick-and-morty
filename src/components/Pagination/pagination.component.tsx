@@ -23,7 +23,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 	if (pageCount === 1) return null
 
 	return (
-		<div className={styles.paginationWrapper}>
+		<nav className={styles.paginationWrapper} aria-label="Pagination">
 			<ReactPaginate
 				onClick={handlePageChange}
 				forcePage={initialPage}
@@ -38,6 +38,6 @@ export const Pagination: React.FC<PaginationProps> = ({
 				previousLabel="❮"
 				renderOnZeroPageCount={null}
 			/>
-		</div>
+		</nav>
 	)
 }
