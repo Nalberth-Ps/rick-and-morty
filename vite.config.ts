@@ -1,11 +1,18 @@
 import * as path from "path"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
+import compression from "vite-plugin-compression"
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	base: "/",
-	plugins: [react()],
+	plugins: [
+		react(),
+		compression({
+			algorithm: "brotliCompress",
+			ext: ".br",
+		}),
+	],
 	resolve: {
 		alias: [
 			{ find: "@assets", replacement: path.resolve(__dirname, "src/assets") },
@@ -30,13 +37,7 @@ export default defineConfig({
 				entryFileNames: "assets/[name].js",
 				chunkFileNames: "assets/[name].js",
 				manualChunks(id) {
-					if (id.includes("/node_modules/")) {
-						if (id.includes("react") || id.includes("react-dom")) return "react"
-						if (id.includes("lodash")) return "lodash"
-						if (id.includes("graphql")) return "graphql"
-
-						return "vendor"
-					}
+					if (id.includes("/node_modules/")) return "dependencies"
 
 					if (id.includes("/src/context/")) {
 						const name = id
