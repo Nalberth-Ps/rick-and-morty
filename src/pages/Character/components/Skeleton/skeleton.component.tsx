@@ -1,7 +1,8 @@
-import { lazy } from "react"
-const MuiSkeleton = lazy(() => import("@mui/material/Skeleton"))
+import MuiSkeleton from "react-loading-skeleton"
 import { useMediaQuery } from "react-responsive"
 import styles from "./skeleton.module.css"
+
+const SKELETON_IDS = ["info-1", "info-2", "info-3", "info-4", "info-5"]
 
 export const Skeleton = () => {
 	const isMobile = useMediaQuery({ query: "(max-width: 768px)" })
@@ -12,28 +13,20 @@ export const Skeleton = () => {
 	return (
 		<div className={styles.skeletonWrapper}>
 			<div className={styles.skeletonAvatar}>
-				<MuiSkeleton
-					variant="circular"
-					width={avatarSize}
-					height={avatarSize}
-				/>
-				<MuiSkeleton variant="text" width={200} height={56} />
+				<MuiSkeleton circle width={avatarSize} height={avatarSize} />
+				<MuiSkeleton width={200} height={34} />
 			</div>
 
 			<div className={styles.skeletonInformation}>
 				<div className={styles.skeletonInformationRow}>
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
+					{SKELETON_IDS.map((id) => (
+						<MuiSkeleton key={id} width={informationWidth} height={36} />
+					))}
 				</div>
 				<div className={styles.skeletonInformationRow}>
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
-					<MuiSkeleton variant="text" width={informationWidth} height={60} />
+					{SKELETON_IDS.map((id) => (
+						<MuiSkeleton key={id} width={informationWidth} height={36} />
+					))}
 				</div>
 			</div>
 		</div>

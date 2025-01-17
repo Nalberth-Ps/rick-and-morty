@@ -2,7 +2,7 @@ import { useLocation } from "@context/location"
 
 import styles from "./details.module.css"
 import { lazy } from "react"
-const MuiSkeleton = lazy(() => import("@mui/material/Skeleton"))
+import MuiSkeleton from "react-loading-skeleton"
 const GoBackButton = lazy(() => import("@components/GoBackButton"))
 
 export const Details = () => {
@@ -12,7 +12,7 @@ export const Details = () => {
 		<div className={styles.container}>
 			<GoBackButton />
 			<h1 className={styles.title}>
-				{location ? location.name : <MuiSkeleton width={200} height={48} />}
+				{location ? location.name : <MuiSkeleton width={200} height={40} />}
 			</h1>
 
 			<div className={styles.informationRow}>

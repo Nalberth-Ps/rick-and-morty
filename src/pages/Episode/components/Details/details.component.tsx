@@ -1,7 +1,7 @@
 import { lazy } from "react"
 import { useEpisode } from "@context/episode"
 const GoBackButton = lazy(() => import("@components/GoBackButton"))
-const MuiSkeleton = lazy(() => import("@mui/material/Skeleton"))
+import MuiSkeleton from "react-loading-skeleton"
 import styles from "./details.module.css"
 
 export const Details = () => {
@@ -11,7 +11,7 @@ export const Details = () => {
 		<div className={styles.container}>
 			<GoBackButton />
 			<h1 className={styles.title}>
-				{episode ? episode.name : <MuiSkeleton width={200} height={48} />}
+				{episode ? episode.name : <MuiSkeleton width={200} height={40} />}
 			</h1>
 
 			<div className={styles.informationRow}>

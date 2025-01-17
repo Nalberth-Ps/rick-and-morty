@@ -13,6 +13,10 @@
 	list-style: none;
 }
 
+.cardsListLoading {
+	width: 100%;
+}
+
 .card {
 	width: 100%;
 	height: 100%;

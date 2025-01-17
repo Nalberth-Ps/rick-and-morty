@@ -1,5 +1,4 @@
-import { lazy } from "react"
-const MuiSkeleton = lazy(() => import("@mui/material/Skeleton"))
+import MuiSkeleton from "react-loading-skeleton"
 import styles from "./cards.module.css"
 
 export const Skeleton = () => {
@@ -10,10 +9,10 @@ export const Skeleton = () => {
 			{items.map((item) => (
 				<MuiSkeleton
 					key={item}
-					variant="rectangular"
 					height={153}
 					width="100%"
-					style={{ borderRadius: 8 }}
+					borderRadius={8}
+					containerClassName={styles.cardsListLoading}
 				/>
 			))}
 		</div>
