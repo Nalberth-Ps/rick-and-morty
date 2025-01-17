@@ -1,4 +1,4 @@
-import EpisodeMainImage from "@assets/images/episodes-banner-page.png"
+import EpisodeMainImage from "@assets/images/episodes-banner-page.webp"
 
 import styles from "./banner.module.css"
 

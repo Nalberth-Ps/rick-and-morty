@@ -1,4 +1,4 @@
-import LocationMainImage from "@assets/images/rick-and-morty-locations-page.png"
+import LocationMainImage from "@assets/images/rick-and-morty-locations-page.webp"
 import styles from "./banner.module.css"
 
 export const Banner = () => {
