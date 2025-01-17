@@ -1,7 +1,7 @@
-import React from "react"
 import { App } from "./App"
 import { createBrowserRouter, Navigate } from "react-router-dom"
 
+import React from "react"
 const Characters = React.lazy(() => import("@pages/Characters"))
 const Character = React.lazy(() => import("@pages/Character"))
 const Locations = React.lazy(() => import("@pages/Locations"))

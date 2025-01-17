@@ -34,8 +34,8 @@ export default defineConfig({
 		modulePreload: false,
 		rollupOptions: {
 			output: {
-				entryFileNames: "assets/[name].js",
-				chunkFileNames: "assets/[name].js",
+				entryFileNames: "assets/[name][hash].js",
+				chunkFileNames: "assets/[name][hash].js",
 			},
 		},
 	},

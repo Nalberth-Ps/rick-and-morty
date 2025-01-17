@@ -32,10 +32,10 @@ export const Pagination: React.FC<PaginationProps> = ({
 				activeClassName={styles.selectedPage}
 				disabledClassName={styles.disabled}
 				breakLabel="..."
-				nextLabel=">"
+				nextLabel="❯"
 				pageRangeDisplayed={isMobile ? 2 : 5}
 				pageCount={pageCount}
-				previousLabel="<"
+				previousLabel="❮"
 				renderOnZeroPageCount={null}
 			/>
 		</div>

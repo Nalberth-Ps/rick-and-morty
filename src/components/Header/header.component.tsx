@@ -29,6 +29,7 @@ export const Header: React.FC = () => {
 					className={styles.menuButton}
 					onClick={toggleDrawer}
 					type="button"
+					aria-label="Open menu"
 				>
 					<AiOutlineMenu size={24} />
 				</button>
