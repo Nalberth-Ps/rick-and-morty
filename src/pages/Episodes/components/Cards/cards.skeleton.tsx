@@ -1,4 +1,5 @@
-import { Skeleton as MuiSkeleton } from "@mui/material"
+import { lazy } from "react"
+const MuiSkeleton = lazy(() => import("@mui/material/Skeleton"))
 import styles from "./cards.module.css"
 
 export const Skeleton = () => {
