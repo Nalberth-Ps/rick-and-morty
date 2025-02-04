@@ -8,7 +8,7 @@ export const Characters = () => {
 
 	return (
 		<>
-			<h2 className={styles.title}>Residents</h2>
+			<h2 className={styles.title}>Moradores</h2>
 
 			<Cards characters={location?.residents} loading={loading} />
 		</>

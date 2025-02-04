@@ -10,7 +10,7 @@ type Props = {
 	placeholder?: string
 }
 
-const ByName: React.FC<Props> = ({ placeholder = "Filter by name..." }) => {
+const ByName: React.FC<Props> = ({ placeholder = "Filtrar por nome..." }) => {
 	const { updateFilters } = useFilters()
 
 	const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {

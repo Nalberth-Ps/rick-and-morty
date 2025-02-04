@@ -10,7 +10,7 @@ export const Characters = () => {
 
 	return (
 		<>
-			<h2 className={styles.title}>Cast</h2>
+			<h2 className={styles.title}>Elenco</h2>
 
 			<Cards characters={episode?.characters} loading={episodeIsLoading} />
 		</>

@@ -16,7 +16,7 @@ export const Details = () => {
 
 			<div className={styles.informationRow}>
 				<div className={styles.information}>
-					<p className={styles.informationTitle}>Episode</p>
+					<p className={styles.informationTitle}>Episódio</p>
 					<p className={styles.informationText}>
 						{episode ? (
 							episode.episode
@@ -27,7 +27,7 @@ export const Details = () => {
 				</div>
 
 				<div className={styles.information}>
-					<p className={styles.informationTitle}>Date</p>
+					<p className={styles.informationTitle}>Data</p>
 					<p className={styles.informationText}>
 						{episode ? (
 							episode.air_date

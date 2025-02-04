@@ -10,7 +10,7 @@ export const Information: React.FC = () => {
 
 	return (
 		<div className={styles.container}>
-			<h2 className={styles.title}>Informations</h2>
+			<h2 className={styles.title}>Informações</h2>
 			<ul className={styles.informationList}>
 				<li className={styles.informationItem}>
 					<Item title="Gênero" value={character.gender} />

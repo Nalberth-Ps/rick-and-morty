@@ -27,7 +27,7 @@ export const GoBackButton = () => {
 				height={24}
 				width={24}
 			/>
-			<h3 className={styles.label}>Go back</h3>
+			<h3 className={styles.label}>Voltar</h3>
 		</button>
 	)
 }

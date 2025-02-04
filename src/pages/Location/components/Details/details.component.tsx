@@ -17,14 +17,14 @@ export const Details = () => {
 
 			<div className={styles.informationRow}>
 				<div className={styles.information}>
-					<p className={styles.informationTitle}>Type</p>
+					<p className={styles.informationTitle}>Tipo</p>
 					<p className={styles.informationText}>
 						{location ? location.type : <MuiSkeleton width={100} height={24} />}
 					</p>
 				</div>
 
 				<div className={styles.information}>
-					<p className={styles.informationTitle}>Dimension</p>
+					<p className={styles.informationTitle}>Dimensão</p>
 					<p className={styles.informationText}>
 						{location ? (
 							location.dimension
