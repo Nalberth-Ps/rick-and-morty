@@ -14,7 +14,7 @@ import { PAGINATION_ACTION_TYPE } from "@context/pagination/pagination.interface
 // Styles
 import styles from "./filter.module.css"
 
-export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
+export const Filter: React.FC<FilterProps> = ({ filterType, items, label }) => {
 	const { updateFilters } = useFilters()
 	const { dispatch } = usePagination() ?? {}
 	const [_, setSearchParams] = useSearchParams()
@@ -46,10 +46,10 @@ export const Filter: React.FC<FilterProps> = ({ filterType, items }) => {
 				onChange={handleChange}
 				aria-label={filterType}
 			>
-				<option value="">{filterType}</option>
-				{items.map((item) => (
-					<option key={item} value={item} className={styles.selectItem}>
-						{item}
+				<option value="">{label}</option>
+				{items.map(({ label, value }) => (
+					<option key={value} value={value} className={styles.selectItem}>
+						{label}
 					</option>
 				))}
 			</select>

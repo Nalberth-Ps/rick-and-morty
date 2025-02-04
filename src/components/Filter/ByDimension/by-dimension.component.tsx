@@ -4,16 +4,35 @@ import { Filter } from "../filter.component"
 import { FilterType } from "@context/filters/filters.interface"
 
 const ByDimension: React.FC = () => {
-	const dimensionTypes: LocationDimensions[] = [
-		"Cronenberg Dimension",
-		"Dimension 5-126",
-		"Dimension C-137",
-		"Replacement Dimension",
-		"unknown",
+	const dimensionTypes: Array<{
+		label: string
+		value: LocationDimensions
+	}> = [
+		{
+			label: "Dimensão Cronenberg",
+			value: "Cronenberg Dimension",
+		},
+		{
+			label: "Dimensão 5-126",
+			value: "Dimension 5-126",
+		},
+		{
+			label: "Dimensão C-137",
+			value: "Dimension C-137",
+		},
+		{
+			label: "Dimensão de Reposição",
+			value: "Replacement Dimension",
+		},
+		{
+			label: "Desconhecido",
+			value: "unknown",
+		},
 	]
 
 	return (
 		<Filter
+			label="Filtrar por dimensão"
 			filterType={FilterType.dimension}
 			items={dimensionTypes}
 			key={FilterType.dimension}

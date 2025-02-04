@@ -8,6 +8,7 @@ export const Filters = () => {
 			<Filter.ByName />
 			<Filter.ByStatus />
 			<Filter.ByGender />
+			<Filter.BySpecie />
 		</div>
 	)
 }

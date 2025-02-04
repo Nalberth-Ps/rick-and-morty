@@ -15,7 +15,11 @@ export type FiltersContextProps = {
 
 export type FilterProps = {
 	filterType: FilterTypes
-	items: string[]
+	label: string
+	items: {
+		label: string
+		value: string
+	}[]
 }
 
 export type SelectItemProps = {
