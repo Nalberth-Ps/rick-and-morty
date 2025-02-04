@@ -8,7 +8,6 @@ export const Filters = () => {
 			<Filter.ByName />
 			<Filter.ByStatus />
 			<Filter.ByGender />
-			<Filter.ByStatus />
 		</div>
 	)
 }
